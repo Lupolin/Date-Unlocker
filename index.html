@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>週末約會任務解鎖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 第一頁：原本的約會任務卡片 -->
+    <div class="card" id="task-card">
+        <h2>💕 系統偵測到一場浪漫約會任務</h2>
+        <p class="subtitle">這週日天氣極佳，已自動為您生成專屬行程：</p>
+
+        <ul class="timeline">
+            <li><span class="time">13:00</span>🚗 司機抵達（安全駕駛員）</li>
+            <li><span class="time">14:00</span>🟢 小巨蛋溜冰（牽手機制已就緒）</li>
+            <li><span class="time">17:00</span>🥗 植日生手作蔬食（熱量補給站）</li>
+            <li><span class="time">18:00</span>🌙 中山公園（浪漫夜景漫步中）</li>
+            <li><span class="time">20:00</span>🛵 任務圓滿，安全返航</li>
+        </ul>
+
+        <p class="prompt">請問是否願意接受並解鎖這天的行程？✨</p>
+
+        <div class="btn-container">
+            <button class="btn btn-yes" onclick="acceptTask()">接受任務 ❤️</button>
+            <button class="btn btn-no" id="btn-no" ontouchstart="moveButtonMobile(event)"
+                onmouseover="moveButtonMobile(event)" onclick="rejectTask(event)">拒絕</button>
+        </div>
+
+        <div id="response-msg"></div>
+    </div>
+
+    <div class="card second-screen" id="second-screen" style="display: none;">
+        <h2>💌 給妳的小小叮嚀</h2>
+
+        <!-- 圖片區塊：請把 src 換成你的圖片網址或檔案名稱 -->
+        <div class="success-image-box">
+            <img src="doctor_lu.jpg" alt="盧醫師">
+        </div>
+
+        <div class="message-box">
+            <p>晚上十點有預約盧醫師回診 👀</p>
+            <p>請攜帶健保卡並準時報到 🥵</p>
+            <p class="highlight-text">期待這週日的到來呀 ✨</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 50%, #f5c7d8 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 飄落的愛心 */
+.heart-fall {
+    position: fixed;
+    top: -40px;
+    font-size: 18px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 28px 20px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(238, 156, 167, 0.4);
+    width: 92%;
+    max-width: 380px;
+    text-align: center;
+    animation: popIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h2 {
+    color: #d6336c;
+    font-size: 19px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.subtitle {
+    color: #8a6d7a;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.timeline {
+    text-align: left;
+    margin: 18px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline li {
+    padding: 10px 12px;
+    margin: 6px 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    color: #5a4550;
+    font-size: 14px;
+    opacity: 0;
+    animation: slideIn 0.5s ease forwards;
+}
+
+.timeline li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.timeline li:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.timeline li:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.timeline li:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+.timeline li:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.time {
+    font-weight: bold;
+    color: #ff5c8a;
+    margin-right: 6px;
+}
+
+.prompt {
+    font-weight: bold;
+    margin-top: 16px;
+    color: #d6336c;
+    font-size: 15px;
+}
+
+.btn-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    min-height: 50px;
+}
+
+.btn {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff6b6b, #ff8fab);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 5px 22px rgba(255, 107, 107, 0.7);
+    }
+}
+
+.btn-no {
+    background-color: rgba(224, 224, 224, 0.9);
+    color: #666;
+    position: relative;
+    transition: transform 0.15s ease;
+}
+
+#response-msg {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #d6336c;
+    font-size: 15px;
+    min-height: 24px;
+}
+
+.success-pop {
+    animation: successPop 0.5s ease;
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* -----------------------------------------
+   第二頁：精緻美編與圖片限制
+----------------------------------------- */
+.second-screen {
+    animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.success-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 這會裁切圖片以填滿方塊 */
+    display: block;
+}
+
+.success-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 確保圖片不變形並完美填滿方塊 */
+    display: block;
+}
+
+.message-box {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 16px 12px;
+    border-radius: 16px;
+    color: #5a4550;
+    font-size: 14.5px;
+    line-height: 1.7;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.message-box p {
+    margin: 0 0 6px 0;
+    font-weight: 500;
+}
+
+.highlight-text {
+    margin-top: 12px !important;
+    font-weight: bold;
+    color: #ff5c8a;
+    font-size: 15.5px;
+    letter-spacing: 0.5px;
+}
